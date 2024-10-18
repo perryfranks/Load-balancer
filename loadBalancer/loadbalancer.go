@@ -7,8 +7,7 @@ import (
 
 type LoadBalancer interface {
 	LBNext() Server
-	Balance(rw http.Request, req *http.Request)
-	NewLoadBalancer() *LoadBalancer
+	Balance(rw http.ResponseWriter, req *http.Request)
 }
 
 type RoundRobinBalancer struct {
